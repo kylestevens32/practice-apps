@@ -11,21 +11,24 @@ const App = () => {
   const [ words, setWords ] = useState([]);
 
   useEffect(() => {
+    getWords();
+  }, [])
+
+  const getWords = () => {
     axios.get('/words')
       .then(({ data }) => {
-        console.log(data);
         setWords(data);
       })
       .catch((err) => {
         console.log('Error getting glossary data');
       })
-  }, [])
+  }
 
   return (
     <div>
-      <AddForm />
+      <AddForm getWords={getWords} />
       <Search />
-      <Glossary words={words} />
+      <Glossary words={words} getWords={getWords} />
     </div>
   )
 }

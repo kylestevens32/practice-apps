@@ -14,4 +14,6 @@ const glossarySchema = new mongoose.Schema({
 
 const Glossary = mongoose.model('Glossary', glossarySchema);
 
+// Glossary.deleteMany({}).exec()
+
 module.exports = Glossary;

@@ -11,3 +11,26 @@ module.exports.get = (req, res) => {
   })
 }
 
+module.exports.post = (req, res) => {
+  var data = req.body;
+  model.create(data, (err) => {
+    if (err) {
+      res.sendStatus(404);
+    } else {
+      res.sendStatus(201);
+    }
+  })
+}
+
+module.exports.delete = (req, res) => {
+  console.log(req.body.id);
+  var deleteId = req.body.id;
+  model.delete(deleteId, (err) => {
+    if (err) {
+      res.sendStatus(404);
+    } else {
+      res.sendStatus(200);
+    }
+  })
+}
+
