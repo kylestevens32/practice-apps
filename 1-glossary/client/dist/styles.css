@@ -59,6 +59,18 @@ main {
   margin: auto;
 }
 
+h1 {
+  text-align: center;
+}
+
+.add-form {
+  margin: 20px;
+}
+
+.add-form > label {
+  padding: 10px;
+}
+
 .word {
   border: 1px solid black;
   padding: 20px;

@@ -24,9 +24,20 @@ const App = () => {
       })
   }
 
+  const handleClick = (word, definition) => {
+    axios.post('/words', {
+      name: word,
+      definition: definition
+    })
+    .then(() => {
+      getWords();
+    })
+  }
+
   return (
     <div>
-      <AddForm getWords={getWords} />
+      <h1>Glossary</h1>
+      <AddForm handleClick={handleClick} />
       <Search />
       <Glossary words={words} getWords={getWords} />
     </div>
