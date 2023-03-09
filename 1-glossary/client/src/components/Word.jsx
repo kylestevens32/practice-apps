@@ -23,7 +23,7 @@ const Word = ({ word, getWords }) => {
         }} className='update-button'>Update</button>
         <button onClick={handleDelete} className='delete-button'>Delete</button>
       </div>
-      <UpdateForm updating={updating} word={word} getWords={getWords} />
+      <UpdateForm updating={updating} setUpdating={setUpdating} word={word} getWords={getWords} />
     </div>
   )
 }

@@ -1,33 +1,19 @@
 const Glossary = require('./db.js');
 
-module.exports.getAll = (cb) => {
-  Glossary.find({})
-    .then((data) => {
-      cb(null, data);
-    })
-    .catch((err) => {
-      cb(err);
-    })
+module.exports.getAll = () => {
+  return Glossary.find({})
 }
 
-module.exports.create = (word, cb) => {
+module.exports.create = (word) => {
   var newDoc = new Glossary(word);
-  newDoc.save()
-    .then(() => {
-      cb(null);
-    })
-    .catch((err) => {
-      console.log('Error with saving document', err);
-      cb(err);
-    })
+  return newDoc.save()
 }
 
-module.exports.delete = (wordId, cb) => {
-  Glossary.deleteOne({ _id: wordId})
-    .then(() => {
-      cb(null);
-    })
-    .catch((err) => {
-      cb(err);
-    })
+module.exports.update = (word) => {
+  var query = { _id: word._id};
+  return Glossary.findOneAndUpdate(query, { name: word.name, definition: word.definition});
+}
+
+module.exports.delete = (wordId) => {
+  return Glossary.deleteOne({ _id: wordId});
 }

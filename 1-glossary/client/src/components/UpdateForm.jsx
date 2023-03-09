@@ -2,16 +2,18 @@ import React from "react";
 import AddForm from './AddForm.jsx'
 import axios from 'axios';
 
-const UpdateForm = ({ updating, words, getWords }) => {
-  const handleupdate = (word, definition) => {
+const UpdateForm = ({ updating, setUpdating, word, getWords }) => {
+
+  const handleUpdate = (updated, definition) => {
+    console.log('got to handle update')
     axios.put('/words', {
-      data: {
-        id: word._id,
-        name: word,
-        definition: definition
-      }
+      _id: word._id,
+      name: updated,
+      definition: definition
     })
-    .then(() => {
+    .then((response) => {
+      console.log('success', response.status)
+      setUpdating(false);
       getWords();
     })
   }
@@ -19,7 +21,7 @@ const UpdateForm = ({ updating, words, getWords }) => {
   if (updating) {
     return (
       <div className='update-form'>
-        <AddForm handleClick={handleupdate} />
+        <AddForm handleClick={handleUpdate} initialName={word.name} initialDefinition={word.definition}/>
       </div>
     )
   } else {
