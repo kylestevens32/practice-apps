@@ -5,14 +5,12 @@ import axios from 'axios';
 const UpdateForm = ({ updating, setUpdating, word, getWords }) => {
 
   const handleUpdate = (updated, definition) => {
-    console.log('got to handle update')
     axios.put('/words', {
       _id: word._id,
       name: updated,
       definition: definition
     })
     .then((response) => {
-      console.log('success', response.status)
       setUpdating(false);
       getWords();
     })
