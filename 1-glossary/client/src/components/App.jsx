@@ -9,6 +9,7 @@ const App = () => {
   //var wordsEx = [{name: 'goblin', definition: 'strange little creature'}, {name: 'blue', definition: 'color of the sky'}];
 
   const [ words, setWords ] = useState([]);
+  const [ searchValue, setSearchValue ] = useState('');
 
   useEffect(() => {
     getWords();
@@ -38,8 +39,8 @@ const App = () => {
     <div>
       <h1>Glossary</h1>
       <AddForm handleClick={handleClick} />
-      <Search />
-      <Glossary words={words} getWords={getWords} />
+      <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+      <Glossary words={words} getWords={getWords} searchValue={searchValue} />
     </div>
   )
 }
