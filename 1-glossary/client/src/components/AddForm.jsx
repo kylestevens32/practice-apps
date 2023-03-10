@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import axios from 'axios';
 
 const AddForm = ({ handleClick, initialName, initialDefinition }) => {
-
-
   const [ word, setWord ] = useState(initialName || '');
   const [ definition, setDefinition ] = useState(initialDefinition || '');
 

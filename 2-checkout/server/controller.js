@@ -3,7 +3,6 @@ const model = require('./model.js');
 module.exports.get = (req, res) => {
   model.getAll()
     .then((results) => {
-      console.log(results)
       res.status(200).send(results[0]);
     })
     .catch((err) => {

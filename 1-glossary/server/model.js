@@ -5,8 +5,7 @@ module.exports.getAll = () => {
 }
 
 module.exports.create = (word) => {
-  var newDoc = new Glossary(word);
-  return newDoc.save()
+  return Glossary.create(word);
 }
 
 module.exports.update = (word) => {

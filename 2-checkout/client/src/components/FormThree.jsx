@@ -2,24 +2,18 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 
 const FormThree = ({ currentForm, setCurrentForm, formValues, setFormValues }) => {
-  // useEffect(() => {
-  //   axios.post('/shopping', formValues)
-  //     .then(() => {
-  //       setCurrentForm(0);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
     const newValues = Object.assign(data, formValues)
-    setFormValues(newValues, sendData);
+    sendData(newValues);
+    setCurrentForm(0);
   }
 
-  const sendData = () => {
-    axios.post('/shopping', formValues)
+  const sendData = (values) => {
+    axios.post('/shopping', values)
       .then(() => {
         setCurrentForm(0);
       })
