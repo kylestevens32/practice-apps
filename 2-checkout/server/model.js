@@ -7,6 +7,7 @@ module.exports.getAll = () => {
 }
 
 module.exports.create = (data) => {
-  var queryString = 'INSERT INTO responses (name, email, password) VALUES(?, ?, ?)';
-  return db.queryAsync(queryString, [data.name, data.email, data.password]);
+  var queryString = 'INSERT INTO responses (name, email, password, addressOne, addressTwo, city, state, zipcode, cardnumber, expiryDate, cvv, billingZip) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+  var params = [data.name, data.email, data.password, data.addressOne, data.addressTwo, data.city, data.state, data.zipcode, data.cardnumber, data.expiryDate, data.cvv, data.billingZip]
+  return db.queryAsync(queryString, params);
 }

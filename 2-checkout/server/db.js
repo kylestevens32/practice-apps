@@ -20,7 +20,16 @@ db.connectAsync()
         id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
         name TEXT NOT NULL,
         email TEXT NOT NULL,
-        password TEXT NOT NULL
+        password TEXT NOT NULL,
+        addressOne TEXT NOT NULL,
+        addressTwo TEXT NOT NULL,
+        city TEXT NOT NULL,
+        state VARCHAR(2) NOT NULL,
+        zipcode VARCHAR(5) NOT NULL,
+        cardnumber VARCHAR(16) NOT NULL,
+        expiryDate VARCHAR(5) NOT NULL,
+        cvv VARCHAR(3) NOT NULL,
+        billingZip VARCHAR(5) NOT NULL
       )`
     )
   )

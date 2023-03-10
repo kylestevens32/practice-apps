@@ -7,7 +7,6 @@ const FormTwo = ({ currentForm, setCurrentForm, formValues, setFormValues }) => 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
     const newValues = Object.assign(data, formValues)
-    console.log(newValues);
     setFormValues(newValues);
     setCurrentForm(3);
   }
@@ -20,9 +19,9 @@ const FormTwo = ({ currentForm, setCurrentForm, formValues, setFormValues }) => 
       <hr />
       <label>City:<input name='city'/></label>
       <hr />
-      <label>State:<input name='state'/></label>
+      <label>State:<input maxLength='2' name='state'/></label>
       <hr />
-      <label>Zip Code:<input name='zipCode'/></label>
+      <label>Zip Code:<input maxLength='5' name='zipcode'/></label>
       <hr />
       <button type='submit'>Next</button>
     </form>

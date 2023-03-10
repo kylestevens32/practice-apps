@@ -4,7 +4,7 @@ module.exports.get = (req, res) => {
   model.getAll()
     .then((results) => {
       console.log(results)
-      res.status(200).send(results);
+      res.status(200).send(results[0]);
     })
     .catch((err) => {
       res.sendStatus(404);
